@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"><title>First Flask App_weather</title><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"><!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="col-md-6 col-md-offset-3">
+<h1>Hello {{myname}}</h1>
+<h1>Welcome to HomePage</h1>
+<p>Loading from templates</p>
+<a href="/info">Info</a>
+<form method="post" action="/">
+    <input type="text" name="city" placeholder="Enter city name">
+    <button type="submit">Submit</button>
+</form>
+</div>
+{% if data.status==200 %}
+<div class="col-md-6 col-md-offset-3">
+<h3>City:{{data.city}}</h3>
+<h3>Temperature:{{data.temp}}</h3>
+<h3>longitude:{{data.long}}</h3>
+<h3>lattitude:{{data.lati}}</h3>
+<h3>sunrise:{{data.sunrise}}</h3>
+    {% elif data.status==404 %}
+    <div class="col-md-6 col-md-offset-3">
+    <h3>City not found</h3>
+    </div>
+    {% else %}
+    {% endif %}
+</div>
+</body>
+</html>
