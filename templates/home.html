@@ -26,6 +26,9 @@
     {% elif data.status==404 %}
     <div class="col-md-6 col-md-offset-3">
     <h3>City not found</h3>
+       {% elif data.status==400 %}
+        <div class="col-md-6 col-md-offset-3">
+        <h3>{{data.message}}</h3>
     </div>
     {% else %}
     {% endif %}

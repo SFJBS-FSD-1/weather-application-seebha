@@ -21,6 +21,8 @@ def weather_page():
                   ,'sunrise':datetime.datetime.fromtimestamp(response.get('sys')['sunrise']),'status':200}
         elif response['cod']=='404':
             data={'message':response['message'],'status':404}
+        elif response['cod']=='400':
+            data={'message':response['message'],'status':400}
         return render_template("home.html", data=data)
     else:
         data=None
